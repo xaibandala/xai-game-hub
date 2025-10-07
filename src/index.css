@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Gaming Dark Theme - Cyberpunk Neon */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 6% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 6% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 271 81% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 189 94% 43%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 5% 15%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 330 81% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5% 20%;
+    --input: 240 5% 15%;
+    --ring: 271 81% 56%;
+
+    --radius: 0.75rem;
+
+    /* Neon glows */
+    --glow-primary: 271 81% 56%;
+    --glow-secondary: 189 94% 43%;
+    --glow-accent: 330 81% 60%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(271 81% 56%), hsl(189 94% 43%));
+    --gradient-card: linear-gradient(145deg, hsl(240 6% 12%), hsl(240 6% 8%));
+    
+    --sidebar-background: 240 6% 8%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 271 81% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 5% 20%;
+    --sidebar-ring: 271 81% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .game-card {
+    @apply relative overflow-hidden rounded-lg transition-all duration-300;
+    @apply hover:scale-105 hover:shadow-2xl;
+  }
+
+  .game-card:hover {
+    box-shadow: 0 0 30px -5px hsl(var(--glow-primary) / 0.5);
+  }
+
+  .neon-glow {
+    @apply transition-all duration-300;
+    text-shadow: 0 0 10px hsl(var(--glow-primary) / 0.5);
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .skeleton-card {
+    @apply animate-pulse bg-muted rounded-lg;
+  }
+}
